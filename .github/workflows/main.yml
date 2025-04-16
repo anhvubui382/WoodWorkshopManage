@@ -14,34 +14,30 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
-      # Cài NodeJS để build React
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # Cài đặt & build frontend React
       - name: Install dependencies & build React
         run: |
           cd frontend
           npm install
           npm run build
 
-      # Copy React build vào wwwroot của .NET project
       - name: Copy React build to wwwroot
         run: |
-          mkdir -p ./WoodWorkshop/wwwroot   # Tạo thư mục wwwroot nếu chưa có
-          rm -rf ./WoodWorkshop/wwwroot/*    # Xoá các file cũ trong wwwroot
-          cp -r ./frontend/build/* ./WoodWorkshop/wwwroot/  # Copy build vào wwwroot/
+          mkdir -p backend/WoodWorkshop/wwwroot
+          rm -rf backend/WoodWorkshop/wwwroot/*
+          cp -r frontend/build/* backend/WoodWorkshop/wwwroot/
 
-      # Cài .NET SDK
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore dependencies
-        run: dotnet restore WoodWorkshop.sln
+      - name: Restore .NET dependencies
+        run: dotnet restore backend/WoodWorkshop.sln
 
       - name: Build .NET project
-        run: dotnet build WoodWorkshop.sln --configuration Release
+        run: dotnet build backend/WoodWorkshop.sln --configuration Release
