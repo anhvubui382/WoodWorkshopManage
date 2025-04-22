@@ -39,9 +39,11 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
+   
+# Restore dependencies
+- name: Restore dependencies
+  run: dotnet restore backend/woodworkshop/woodworkshop/WoodWorkshop.sln
 
-      - name: Restore dependencies
-        run: dotnet restore WoodWorkshop.sln
-
-      - name: Build .NET project
-        run: dotnet build WoodWorkshop.sln --configuration Release
+# Build .NET project
+- name: Build .NET project
+  run: dotnet build backend/woodworkshop/woodworkshop/WoodWorkshop.sln --configuration Release
