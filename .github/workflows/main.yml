@@ -30,9 +30,9 @@ jobs:
       # Copy React build vào wwwroot của .NET project
       - name: Copy React build to wwwroot
         run: |
-          mkdir -p ./WoodWorkshop/wwwroot   # Tạo thư mục wwwroot nếu chưa có
-          rm -rf ./WoodWorkshop/wwwroot/*    # Xoá các file cũ trong wwwroot
-          cp -r ./frontend/build/* ./WoodWorkshop/wwwroot/  # Copy build vào wwwroot/
+          mkdir -p ./backend/WoodWorkshop/wwwroot   # Tạo thư mục wwwroot nếu chưa có
+          rm -rf ./backend/WoodWorkshop/wwwroot/*    # Xoá các file cũ trong wwwroot
+          cp -r ./frontend/build/* ./backend/WoodWorkshop/wwwroot/  # Copy build vào wwwroot/
 
       # Cài .NET SDK
       - name: Setup .NET SDK
@@ -40,8 +40,10 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      # Restore dependencies
       - name: Restore dependencies
-        run: dotnet restore WoodWorkshop.sln
+        run: dotnet restore ./backend/WoodWorkshop/WoodWorkshop.sln
 
+      # Build .NET project
       - name: Build .NET project
-        run: dotnet build WoodWorkshop.sln --configuration Release
+        run: dotnet build ./backend/WoodWorkshop/WoodWorkshop.sln --configuration Release
