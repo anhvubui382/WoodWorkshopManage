@@ -27,17 +27,21 @@ jobs:
 
       - name: Copy React build to wwwroot
         run: |
-          mkdir -p backend/WoodWorkshop/wwwroot
-          rm -rf backend/WoodWorkshop/wwwroot/*
-          cp -r frontend/build/* backend/WoodWorkshop/wwwroot/
+          mkdir -p ./backend/WoodWorkshop/wwwroot   # Tạo thư mục wwwroot nếu chưa có
+          rm -rf ./backend/WoodWorkshop/wwwroot/*    # Xoá các file cũ trong wwwroot
+          cp -r ./frontend/build/* ./backend/WoodWorkshop/wwwroot/  # Copy build vào wwwroot/
+
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
+          
+      # Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore ./backend/WoodWorkshop/WoodWorkshop.sln
 
-      - name: Restore .NET dependencies
-        run: dotnet restore backend/WoodWorkshop.sln
-
+      # Build .NET project
       - name: Build .NET project
-        run: dotnet build backend/WoodWorkshop.sln --configuration Release
+        run: dotnet build ./backend/WoodWorkshop/WoodWorkshop.sln --configuration Release
+
