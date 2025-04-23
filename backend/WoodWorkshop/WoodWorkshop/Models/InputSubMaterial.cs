@@ -9,7 +9,7 @@ public partial class InputSubMaterial
 
     public DateTime? DateInput { get; set; }
 
-    public decimal? Quantity { get; set; }
+    public double? Quantity { get; set; }
 
     public decimal? UnitPrice { get; set; }
 
@@ -23,7 +23,13 @@ public partial class InputSubMaterial
 
     public string? CodeInput { get; set; }
 
+    public string? ReasonExport { get; set; }
+
     public virtual ActionType? ActionType { get; set; }
+
+    public virtual ICollection<ProductSubMaterial> ProductSubMaterials { get; set; } = new List<ProductSubMaterial>();
+
+    public virtual ICollection<RequestProductsSubmaterial> RequestProductsSubmaterials { get; set; } = new List<RequestProductsSubmaterial>();
 
     public virtual SubMaterial? SubMaterial { get; set; }
 }

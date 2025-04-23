@@ -5,9 +5,11 @@ using WoodWorkshop.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Đăng ký DbContext
-builder.Services.AddDbContext<WoodworkshopContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<WoodWorkshop2025Context>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 34)) // hoặc version MySQL của bạn
+    ));
 
 // Đăng ký Repository và Service
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -21,14 +23,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:3000") // React domain
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")  // Địa chỉ frontend React
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();  // Cho phép cookie/credentials
+    });
 });
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -36,7 +39,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors("AllowFrontend");
+app.UseRouting();
+app.UseCors("AllowLocalhost");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

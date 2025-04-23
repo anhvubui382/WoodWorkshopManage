@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace WoodWorkshop.Models;
 
-public partial class StatusOrder
+public partial class StatusRequest
 {
     public int StatusId { get; set; }
 
     public string StatusName { get; set; } = null!;
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
 }

@@ -5,9 +5,9 @@ namespace WoodWorkshop.Repositories
 {
     public class JobRepository : IJobRepository
     {
-        private readonly WoodworkshopContext _context;
+        private readonly WoodWorkshop2025Context _context;
 
-        public JobRepository(WoodworkshopContext context)
+        public JobRepository(WoodWorkshop2025Context context)
         {
             _context = context;
         }

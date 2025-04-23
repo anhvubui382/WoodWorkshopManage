@@ -7,7 +7,7 @@ public partial class RequestProduct
 {
     public int RequestProductId { get; set; }
 
-    public string? RequestProductName { get; set; }
+    public string RequestProductName { get; set; } = null!;
 
     public string? Description { get; set; }
 
@@ -23,6 +23,8 @@ public partial class RequestProduct
 
     public int? OrderId { get; set; }
 
+    public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
+
     public virtual Order? Order { get; set; }
 
     public virtual ICollection<Orderdetail> Orderdetails { get; set; } = new List<Orderdetail>();
@@ -30,8 +32,6 @@ public partial class RequestProduct
     public virtual ICollection<ProcessProductError> ProcessProductErrors { get; set; } = new List<ProcessProductError>();
 
     public virtual ICollection<ProductRequestImage> ProductRequestImages { get; set; } = new List<ProductRequestImage>();
-
-    public virtual ICollection<RequestImage> RequestImages { get; set; } = new List<RequestImage>();
 
     public virtual ICollection<RequestProductsSubmaterial> RequestProductsSubmaterials { get; set; } = new List<RequestProductsSubmaterial>();
 

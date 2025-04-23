@@ -20,6 +20,4 @@ public partial class RequestImage
     public int? OrderId { get; set; }
 
     public virtual Order? Order { get; set; }
-
-    public virtual RequestProduct? Request { get; set; }
 }

@@ -7,9 +7,9 @@ public partial class StatusJob
 {
     public int StatusId { get; set; }
 
-    public string? StatusName { get; set; }
+    public string StatusName { get; set; } = null!;
 
-    public int? Type { get; set; }
+    public int Type { get; set; }
 
     public string? Des { get; set; }
 

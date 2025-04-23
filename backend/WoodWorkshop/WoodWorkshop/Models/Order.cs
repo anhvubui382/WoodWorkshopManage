@@ -13,7 +13,7 @@ public partial class Order
 
     public decimal? TotalAmount { get; set; }
 
-    public bool? SpecialOrder { get; set; }
+    public ulong? SpecialOrder { get; set; }
 
     public int? PaymentMethod { get; set; }
 
@@ -23,9 +23,37 @@ public partial class Order
 
     public string? Code { get; set; }
 
+    public string? Address { get; set; }
+
+    public string? Fullname { get; set; }
+
+    public string? PhoneNumber { get; set; }
+
+    public string? CityProvince { get; set; }
+
+    public string? District { get; set; }
+
+    public string? Wards { get; set; }
+
+    public DateTime? OrderFinish { get; set; }
+
+    public string? Description { get; set; }
+
+    public string? Response { get; set; }
+
+    public decimal? Discount { get; set; }
+
+    public decimal? Refund { get; set; }
+
+    public DateTime? ContractDate { get; set; }
+
+    public int? RefundId { get; set; }
+
     public virtual InformationUser? Infor { get; set; }
 
     public virtual ICollection<Orderdetail> Orderdetails { get; set; } = new List<Orderdetail>();
+
+    public virtual RefundOrderStatus? RefundNavigation { get; set; }
 
     public virtual ICollection<RequestImage> RequestImages { get; set; } = new List<RequestImage>();
 

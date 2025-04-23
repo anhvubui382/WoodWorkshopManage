@@ -5,9 +5,9 @@ namespace WoodWorkshop.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly WoodworkshopContext _context;
+        private readonly WoodWorkshop2025Context _context;
 
-        public UserRepository(WoodworkshopContext context)
+        public UserRepository(WoodWorkshop2025Context context)
         {
             _context = context;
         }
@@ -17,7 +17,11 @@ namespace WoodWorkshop.Repositories
             _context.Users.Add(user);
             _context.SaveChanges();
         }
-
+        public async Task<User> GetUserByIdAsync(int userId)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(user => user.UserId == userId);
+        }
         public IEnumerable<User> GetAllUsers()
         {
             return _context.Users.ToList();

@@ -1,4 +1,5 @@
-﻿using WoodWorkshop.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using WoodWorkshop.Models;
 using WoodWorkshop.Repositories;
 
 namespace WoodWorkshop.Services
@@ -15,7 +16,10 @@ namespace WoodWorkshop.Services
         {
             _userRepository.AddUser(user);
         }
-
+        public async Task<User> GetUserByIdAsync(int userId)
+        {
+            return await _userRepository.GetUserByIdAsync(userId);
+        }
         public IEnumerable<User> GetAllUsers()
         {
             return _userRepository.GetAllUsers();

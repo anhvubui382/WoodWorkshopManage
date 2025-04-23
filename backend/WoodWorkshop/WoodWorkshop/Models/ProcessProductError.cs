@@ -11,7 +11,7 @@ public partial class ProcessProductError
 
     public string? Description { get; set; }
 
-    public bool? IsFixed { get; set; }
+    public ulong? IsFixed { get; set; }
 
     public string? Solution { get; set; }
 

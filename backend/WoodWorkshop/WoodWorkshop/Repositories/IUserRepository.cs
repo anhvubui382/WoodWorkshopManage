@@ -7,5 +7,7 @@ namespace WoodWorkshop.Repositories
     {
         IEnumerable<User> GetAllUsers();
         void AddUser(User user);
+
+        Task<User> GetUserByIdAsync(int userId);
     }
 }

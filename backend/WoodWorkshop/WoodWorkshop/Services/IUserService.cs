@@ -6,7 +6,7 @@ namespace WoodWorkshop.Services
     {
         IEnumerable<User> GetAllUsers();
         void CreateUser(User user);
-
+        Task<User> GetUserByIdAsync(int userId);
 
     }
 }

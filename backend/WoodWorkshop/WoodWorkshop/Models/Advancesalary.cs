@@ -13,11 +13,11 @@ public partial class Advancesalary
 
     public int? UserId { get; set; }
 
-    public bool? IsAdvanceSuccess { get; set; }
+    public ulong? IsAdvanceSuccess { get; set; }
 
     public string? Code { get; set; }
 
-    public bool? IsApprove { get; set; }
+    public ulong? IsApprove { get; set; }
 
     public DateTime? PaymentDate { get; set; }
 

@@ -11,9 +11,9 @@ public partial class EmployeeMaterial
 
     public int? ProductSubMaterialId { get; set; }
 
-    public int? RequestProductsSubMaterialsId { get; set; }
+    public int? RequestProductsSubmaterialsId { get; set; }
 
-    public decimal? TotalMaterial { get; set; }
+    public double? TotalMaterial { get; set; }
 
     public int? JobId { get; set; }
 
@@ -23,5 +23,5 @@ public partial class EmployeeMaterial
 
     public virtual ProductSubMaterial? ProductSubMaterial { get; set; }
 
-    public virtual RequestProductsSubmaterial? RequestProductsSubMaterials { get; set; }
+    public virtual RequestProductsSubmaterial? RequestProductsSubmaterials { get; set; }
 }
