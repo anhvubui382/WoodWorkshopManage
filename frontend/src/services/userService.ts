@@ -8,7 +8,7 @@ const coffeeShopAPI = 'https://api.sampleapis.com/coffee/hot'; // API URL của 
 export interface CreateUserRequest {
     username: string;
     password: string;
-    email: string; 
+    email: string;
 }
 
 // Hàm tạo người dùng

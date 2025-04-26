@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getCoffeeShopData } from '../services/userService';
 interface CoffeeShop {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    image: string;
-    ingredients: string[];
-    totalSales: number;
-  }
-  
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  image: string;
+  ingredients: string[];
+  totalSales: number;
+}
+
 // Sử dụng interface để chỉ định kiểu dữ liệu của state coffeeShops
 export const CoffeeShopList = () => {
   const [coffeeShops, setCoffeeShops] = useState<CoffeeShop[]>([]); // Đảm bảo state có kiểu là mảng CoffeeShop
