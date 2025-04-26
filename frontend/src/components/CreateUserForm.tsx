@@ -13,12 +13,13 @@ export const CreateUserForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await createuser(formData); // Gọi API tạo người dùng
+      await createuser(formData); // Gọi API tạo người dùng
       setMessage('User created successfully!');
     } catch (err) {
       setMessage('Error creating user');
     }
   };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
