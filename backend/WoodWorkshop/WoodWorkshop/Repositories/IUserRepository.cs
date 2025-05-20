@@ -6,8 +6,8 @@ namespace WoodWorkshop.Repositories
     public interface IUserRepository
     {
         IEnumerable<User> GetAllUsers();
-        void AddUser(User user);
-
+        Task<User> AddUserAsync(User user);
+        Task<User?> GetUserByUsernameAsync(string username);
         Task<User> GetUserByIdAsync(int userId);
     }
 }

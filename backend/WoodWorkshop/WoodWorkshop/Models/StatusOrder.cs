@@ -7,7 +7,7 @@ public partial class StatusOrder
 {
     public int StatusId { get; set; }
 
-    public string StatusName { get; set; } = null!;
+    public string? StatusName { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

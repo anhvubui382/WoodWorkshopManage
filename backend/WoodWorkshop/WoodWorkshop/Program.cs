@@ -1,19 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WoodWorkshop.Models;
 using WoodWorkshop.Repositories;
 using WoodWorkshop.Services;
+using WoodWorkshop.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<WoodWorkshop2025Context>(options =>
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 34)) // hoặc version MySQL của bạn
+builder.Services.AddDbContext<WoodWorkshopContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-// Đăng ký Repository và Service
+//// Đăng ký Repository và Service
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IInformationUserRepository, InformationUserRepository>();
 
 //Đăng ký AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));

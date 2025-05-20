@@ -7,7 +7,7 @@ public partial class SubMaterial
 {
     public int SubMaterialId { get; set; }
 
-    public string SubMaterialName { get; set; } = null!;
+    public string? SubMaterialName { get; set; }
 
     public int? MaterialId { get; set; }
 
@@ -18,6 +18,4 @@ public partial class SubMaterial
     public virtual ICollection<InputSubMaterial> InputSubMaterials { get; set; } = new List<InputSubMaterial>();
 
     public virtual Material? Material { get; set; }
-
-    public virtual ICollection<Suppliermaterial> Suppliermaterials { get; set; } = new List<Suppliermaterial>();
 }

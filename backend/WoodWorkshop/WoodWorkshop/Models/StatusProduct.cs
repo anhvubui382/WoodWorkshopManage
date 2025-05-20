@@ -7,11 +7,11 @@ public partial class StatusProduct
 {
     public int StatusId { get; set; }
 
-    public string StatusName { get; set; } = null!;
+    public string? StatusName { get; set; }
 
-    public int Type { get; set; }
+    public int? Type { get; set; }
 
-    public string Descriptions { get; set; } = null!;
+    public string? Descriptions { get; set; }
 
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 

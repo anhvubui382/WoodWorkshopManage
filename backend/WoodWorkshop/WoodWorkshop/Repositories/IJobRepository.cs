@@ -1,9 +1,9 @@
-﻿using WoodWorkshop.Models;
+﻿//using WoodWorkshop.Models;
 
-namespace WoodWorkshop.Repositories
-{
-    public interface IJobRepository
-    {
-        Task<User?> GetUserWithJobsAsync(int userId);
-    }
-}
+//namespace WoodWorkshop.Repositories
+//{
+//    public interface IJobRepository
+//    {
+//        Task<User?> GetUserWithJobsAsync(int userId);
+//    }
+//}

@@ -1,12 +1,10 @@
-﻿using WoodWorkshop.Models;
+﻿using WoodWorkshop.DTOs.UserDTOs;
+using WoodWorkshop.Models;
 
 namespace WoodWorkshop.Services
 {
     public interface IUserService
     {
-        IEnumerable<User> GetAllUsers();
-        void CreateUser(User user);
-        Task<User> GetUserByIdAsync(int userId);
-
+        Task<bool> CreateUserAsync(CreateUserRequest request);
     }
 }

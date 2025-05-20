@@ -7,11 +7,11 @@ public partial class User
 {
     public int UserId { get; set; }
 
-    public string Username { get; set; } = null!;
+    public string? Username { get; set; }
 
-    public string Password { get; set; } = null!;
+    public string? Password { get; set; }
 
-    public string Email { get; set; } = null!;
+    public string? Email { get; set; }
 
     public int? RoleId { get; set; }
 
@@ -27,7 +27,7 @@ public partial class User
 
     public virtual ICollection<EmployeeMaterial> EmployeeMaterials { get; set; } = new List<EmployeeMaterial>();
 
-    public virtual ForgotPassword? ForgotPassword { get; set; }
+    public virtual ICollection<ForgotPassword> ForgotPasswords { get; set; } = new List<ForgotPassword>();
 
     public virtual InformationUser? Infor { get; set; }
 
@@ -35,11 +35,7 @@ public partial class User
 
     public virtual Position? Position { get; set; }
 
-    public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
-
     public virtual Role? Role { get; set; }
-
-    public virtual ICollection<Salary> Salaries { get; set; } = new List<Salary>();
 
     public virtual StatusUser? Status { get; set; }
 

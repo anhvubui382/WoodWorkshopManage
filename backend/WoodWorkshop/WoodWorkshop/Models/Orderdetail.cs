@@ -17,8 +17,6 @@ public partial class Orderdetail
 
     public int? RequestProductId { get; set; }
 
-    public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
-
     public virtual Order? Order { get; set; }
 
     public virtual Product? Product { get; set; }
