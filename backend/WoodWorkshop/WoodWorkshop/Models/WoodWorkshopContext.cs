@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WoodWorkshop.Models;
 
-public partial class WoodworkshopContext : DbContext
+public partial class WoodWorkshopContext : DbContext
 {
-    public WoodworkshopContext()
+    public WoodWorkshopContext()
     {
     }
 
-    public WoodworkshopContext(DbContextOptions<WoodworkshopContext> options)
+    public WoodWorkshopContext(DbContextOptions<WoodWorkshopContext> options)
         : base(options)
     {
     }
@@ -75,13 +75,13 @@ public partial class WoodworkshopContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost,1433;Database=WOODWORKSHOP;User Id=sa;Password=Laptrinh@2025;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-LF8LV29\\SQLEXPRESS;Database=WoodWorkshop;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ActionType>(entity =>
         {
-            entity.HasKey(e => e.ActionTypeId).HasName("PK__action_t__980094F169500BFF");
+            entity.HasKey(e => e.ActionTypeId).HasName("PK__action_t__980094F108C8934F");
 
             entity.ToTable("action_type");
 
@@ -94,7 +94,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<Advancesalary>(entity =>
         {
-            entity.HasKey(e => e.AdvanceSalaryId).HasName("PK__advances__B552B8A263735956");
+            entity.HasKey(e => e.AdvanceSalaryId).HasName("PK__advances__B552B8A2417BD5E0");
 
             entity.ToTable("advancesalary");
 
@@ -119,16 +119,16 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Job).WithMany(p => p.Advancesalaries)
                 .HasForeignKey(d => d.JobId)
-                .HasConstraintName("FK__advancesa__job_i__797309D9");
+                .HasConstraintName("FK__advancesa__job_i__0B91BA14");
 
             entity.HasOne(d => d.User).WithMany(p => p.Advancesalaries)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__advancesa__user___787EE5A0");
+                .HasConstraintName("FK__advancesa__user___0A9D95DB");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__categori__D54EE9B4EC3663DD");
+            entity.HasKey(e => e.CategoryId).HasName("PK__categori__D54EE9B4E4AF63AF");
 
             entity.ToTable("categories");
 
@@ -141,7 +141,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<EmployeeMaterial>(entity =>
         {
-            entity.HasKey(e => e.EmpMaterialId).HasName("PK__employee__C2CC6ED5F7EBE5F6");
+            entity.HasKey(e => e.EmpMaterialId).HasName("PK__employee__C2CC6ED52D0E14B7");
 
             entity.ToTable("employee_materials");
 
@@ -156,24 +156,24 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Employee).WithMany(p => p.EmployeeMaterials)
                 .HasForeignKey(d => d.EmployeeId)
-                .HasConstraintName("FK__employee___emplo__72C60C4A");
+                .HasConstraintName("FK__employee___emplo__04E4BC85");
 
             entity.HasOne(d => d.Job).WithMany(p => p.EmployeeMaterials)
                 .HasForeignKey(d => d.JobId)
-                .HasConstraintName("FK__employee___job_i__75A278F5");
+                .HasConstraintName("FK__employee___job_i__07C12930");
 
             entity.HasOne(d => d.ProductSubMaterial).WithMany(p => p.EmployeeMaterials)
                 .HasForeignKey(d => d.ProductSubMaterialId)
-                .HasConstraintName("FK__employee___produ__73BA3083");
+                .HasConstraintName("FK__employee___produ__05D8E0BE");
 
             entity.HasOne(d => d.RequestProductsSubMaterials).WithMany(p => p.EmployeeMaterials)
                 .HasForeignKey(d => d.RequestProductsSubMaterialsId)
-                .HasConstraintName("FK__employee___reque__74AE54BC");
+                .HasConstraintName("FK__employee___reque__06CD04F7");
         });
 
         modelBuilder.Entity<ForgotPassword>(entity =>
         {
-            entity.HasKey(e => e.Fpid).HasName("PK__forgot_p__330FD28F2419EDCD");
+            entity.HasKey(e => e.Fpid).HasName("PK__forgot_p__330FD28FC7BAE32B");
 
             entity.ToTable("forgot_password");
 
@@ -186,12 +186,12 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.UserUser).WithMany(p => p.ForgotPasswords)
                 .HasForeignKey(d => d.UserUserId)
-                .HasConstraintName("FK__forgot_pa__user___07C12930");
+                .HasConstraintName("FK__forgot_pa__user___19DFD96B");
         });
 
         modelBuilder.Entity<InformationUser>(entity =>
         {
-            entity.HasKey(e => e.InforId).HasName("PK__informat__5C9ACE20C08B95B0");
+            entity.HasKey(e => e.InforId).HasName("PK__informat__5C9ACE2045CAF035");
 
             entity.ToTable("information_user");
 
@@ -233,7 +233,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<InputSubMaterial>(entity =>
         {
-            entity.HasKey(e => e.InputId).HasName("PK__input_su__038EEFF7F227CE74");
+            entity.HasKey(e => e.InputId).HasName("PK__input_su__038EEFF79D0DE7B4");
 
             entity.ToTable("input_sub_material");
 
@@ -262,16 +262,16 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.ActionType).WithMany(p => p.InputSubMaterials)
                 .HasForeignKey(d => d.ActionTypeId)
-                .HasConstraintName("FK__input_sub__actio__628FA481");
+                .HasConstraintName("FK__input_sub__actio__74AE54BC");
 
             entity.HasOne(d => d.SubMaterial).WithMany(p => p.InputSubMaterials)
                 .HasForeignKey(d => d.SubMaterialId)
-                .HasConstraintName("FK__input_sub__sub_m__619B8048");
+                .HasConstraintName("FK__input_sub__sub_m__73BA3083");
         });
 
         modelBuilder.Entity<Job>(entity =>
         {
-            entity.HasKey(e => e.JobId).HasName("PK__jobs__6E32B6A54119A108");
+            entity.HasKey(e => e.JobId).HasName("PK__jobs__6E32B6A55A509E1A");
 
             entity.ToTable("jobs");
 
@@ -287,24 +287,24 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.JobIdParentNavigation).WithMany(p => p.InverseJobIdParentNavigation)
                 .HasForeignKey(d => d.JobIdParent)
-                .HasConstraintName("FK__jobs__job_id_par__571DF1D5");
+                .HasConstraintName("FK__jobs__job_id_par__693CA210");
 
             entity.HasOne(d => d.Product).WithMany(p => p.Jobs)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__jobs__product_id__5535A963");
+                .HasConstraintName("FK__jobs__product_id__6754599E");
 
             entity.HasOne(d => d.Status).WithMany(p => p.Jobs)
                 .HasForeignKey(d => d.StatusId)
-                .HasConstraintName("FK__jobs__status_id__5629CD9C");
+                .HasConstraintName("FK__jobs__status_id__68487DD7");
 
             entity.HasOne(d => d.User).WithMany(p => p.Jobs)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__jobs__user_id__5441852A");
+                .HasConstraintName("FK__jobs__user_id__66603565");
         });
 
         modelBuilder.Entity<Material>(entity =>
         {
-            entity.HasKey(e => e.MaterialId).HasName("PK__material__6BFE1D282C850324");
+            entity.HasKey(e => e.MaterialId).HasName("PK__material__6BFE1D284A757CD9");
 
             entity.ToTable("materials");
 
@@ -321,7 +321,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__orders__46596229E9739A55");
+            entity.HasKey(e => e.OrderId).HasName("PK__orders__4659622987B2BB78");
 
             entity.ToTable("orders");
 
@@ -346,16 +346,16 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Infor).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.InforId)
-                .HasConstraintName("FK__orders__infor_id__5AEE82B9");
+                .HasConstraintName("FK__orders__infor_id__6D0D32F4");
 
             entity.HasOne(d => d.Status).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.StatusId)
-                .HasConstraintName("FK__orders__status_i__59FA5E80");
+                .HasConstraintName("FK__orders__status_i__6C190EBB");
         });
 
         modelBuilder.Entity<Orderdetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailId).HasName("PK__orderdet__3C5A4080EC9EF3A4");
+            entity.HasKey(e => e.OrderDetailId).HasName("PK__orderdet__3C5A4080B73F7F66");
 
             entity.ToTable("orderdetails");
 
@@ -370,20 +370,20 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.Orderdetails)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__orderdeta__order__68487DD7");
+                .HasConstraintName("FK__orderdeta__order__7A672E12");
 
             entity.HasOne(d => d.Product).WithMany(p => p.Orderdetails)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__orderdeta__produ__693CA210");
+                .HasConstraintName("FK__orderdeta__produ__7B5B524B");
 
             entity.HasOne(d => d.RequestProduct).WithMany(p => p.Orderdetails)
                 .HasForeignKey(d => d.RequestProductId)
-                .HasConstraintName("FK__orderdeta__reque__6A30C649");
+                .HasConstraintName("FK__orderdeta__reque__7C4F7684");
         });
 
         modelBuilder.Entity<Position>(entity =>
         {
-            entity.HasKey(e => e.PositionId).HasName("PK__position__99A0E7A42845ECD2");
+            entity.HasKey(e => e.PositionId).HasName("PK__position__99A0E7A4C18EA105");
 
             entity.ToTable("positions");
 
@@ -396,7 +396,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<ProcessProductError>(entity =>
         {
-            entity.HasKey(e => e.ProcessProductErrorId).HasName("PK__process___06004BC4F795441D");
+            entity.HasKey(e => e.ProcessProductErrorId).HasName("PK__process___06004BC484D9946D");
 
             entity.ToTable("process_product_error");
 
@@ -421,20 +421,20 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Job).WithMany(p => p.ProcessProductErrors)
                 .HasForeignKey(d => d.JobId)
-                .HasConstraintName("FK__process_p__job_i__7C4F7684");
+                .HasConstraintName("FK__process_p__job_i__0E6E26BF");
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProcessProductErrors)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__process_p__produ__7D439ABD");
+                .HasConstraintName("FK__process_p__produ__0F624AF8");
 
             entity.HasOne(d => d.RequestProduct).WithMany(p => p.ProcessProductErrors)
                 .HasForeignKey(d => d.RequestProductId)
-                .HasConstraintName("FK__process_p__reque__7E37BEF6");
+                .HasConstraintName("FK__process_p__reque__10566F31");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__products__47027DF580F5ED8B");
+            entity.HasKey(e => e.ProductId).HasName("PK__products__47027DF5B6B721EB");
 
             entity.ToTable("products");
 
@@ -455,12 +455,12 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Status).WithMany(p => p.Products)
                 .HasForeignKey(d => d.StatusId)
-                .HasConstraintName("FK__products__status__5165187F");
+                .HasConstraintName("FK__products__status__6383C8BA");
         });
 
         modelBuilder.Entity<ProductRequestImage>(entity =>
         {
-            entity.HasKey(e => e.ProductImageId).HasName("PK__product___0302EB4A110B2A09");
+            entity.HasKey(e => e.ProductImageId).HasName("PK__product___0302EB4AC493544C");
 
             entity.ToTable("product_request_images");
 
@@ -485,12 +485,12 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.RequestProduct).WithMany(p => p.ProductRequestImages)
                 .HasForeignKey(d => d.RequestProductId)
-                .HasConstraintName("FK__product_r__reque__04E4BC85");
+                .HasConstraintName("FK__product_r__reque__17036CC0");
         });
 
         modelBuilder.Entity<ProductSubMaterial>(entity =>
         {
-            entity.HasKey(e => e.ProductSubMaterialId).HasName("PK__product___F1CBC03E58AB5329");
+            entity.HasKey(e => e.ProductSubMaterialId).HasName("PK__product___F1CBC03EF37BD08A");
 
             entity.ToTable("product_sub_materials");
 
@@ -503,12 +503,12 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProductSubMaterials)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__product_s__produ__6FE99F9F");
+                .HasConstraintName("FK__product_s__produ__02084FDA");
         });
 
         modelBuilder.Entity<Productimage>(entity =>
         {
-            entity.HasKey(e => e.ProductImageId).HasName("PK__producti__0302EB4AFE3F034A");
+            entity.HasKey(e => e.ProductImageId).HasName("PK__producti__0302EB4A5ECF652C");
 
             entity.ToTable("productimages");
 
@@ -533,12 +533,12 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.Productimages)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__productim__produ__6D0D32F4");
+                .HasConstraintName("FK__productim__produ__7F2BE32F");
         });
 
         modelBuilder.Entity<RefundOrderStatus>(entity =>
         {
-            entity.HasKey(e => e.RefundId).HasName("PK__refund_o__897E9EA349363E2D");
+            entity.HasKey(e => e.RefundId).HasName("PK__refund_o__897E9EA3707BD0AD");
 
             entity.ToTable("refund_order_status");
 
@@ -551,7 +551,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<RequestImage>(entity =>
         {
-            entity.HasKey(e => e.ProductImageId).HasName("PK__request___0302EB4AC4EBB6D8");
+            entity.HasKey(e => e.ProductImageId).HasName("PK__request___0302EB4A2A38519F");
 
             entity.ToTable("request_images");
 
@@ -577,16 +577,16 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.RequestImages)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__request_i__order__02084FDA");
+                .HasConstraintName("FK__request_i__order__14270015");
 
             entity.HasOne(d => d.Request).WithMany(p => p.RequestImages)
                 .HasForeignKey(d => d.RequestId)
-                .HasConstraintName("FK__request_i__reque__01142BA1");
+                .HasConstraintName("FK__request_i__reque__1332DBDC");
         });
 
         modelBuilder.Entity<RequestProduct>(entity =>
         {
-            entity.HasKey(e => e.RequestProductId).HasName("PK__request___4FEF66DFC2ED3AD6");
+            entity.HasKey(e => e.RequestProductId).HasName("PK__request___4FEF66DF8B7F09FF");
 
             entity.ToTable("request_products");
 
@@ -610,16 +610,16 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.RequestProducts)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__request_p__order__5EBF139D");
+                .HasConstraintName("FK__request_p__order__70DDC3D8");
 
             entity.HasOne(d => d.Status).WithMany(p => p.RequestProducts)
                 .HasForeignKey(d => d.StatusId)
-                .HasConstraintName("FK__request_p__statu__5DCAEF64");
+                .HasConstraintName("FK__request_p__statu__6FE99F9F");
         });
 
         modelBuilder.Entity<RequestProductsSubmaterial>(entity =>
         {
-            entity.HasKey(e => e.RequestProductsSubmaterialsId).HasName("PK__request___F393A5551966B57D");
+            entity.HasKey(e => e.RequestProductsSubmaterialsId).HasName("PK__request___F393A55539FA4BC3");
 
             entity.ToTable("request_products_submaterials");
 
@@ -632,12 +632,12 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.RequestProduct).WithMany(p => p.RequestProductsSubmaterials)
                 .HasForeignKey(d => d.RequestProductId)
-                .HasConstraintName("FK__request_p__reque__656C112C");
+                .HasConstraintName("FK__request_p__reque__778AC167");
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.RoleId).HasName("PK__roles__760965CCC3F2F023");
+            entity.HasKey(e => e.RoleId).HasName("PK__roles__760965CC2138E606");
 
             entity.ToTable("roles");
 
@@ -650,7 +650,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<StatusJob>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__status_j__3683B5317ED9395E");
+            entity.HasKey(e => e.StatusId).HasName("PK__status_j__3683B5317DABE2AA");
 
             entity.ToTable("status_job");
 
@@ -668,7 +668,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<StatusOrder>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__status_o__3683B531A2E5ABA4");
+            entity.HasKey(e => e.StatusId).HasName("PK__status_o__3683B53126C92BFB");
 
             entity.ToTable("status_order");
 
@@ -681,7 +681,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<StatusProduct>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__status_p__3683B53180D03499");
+            entity.HasKey(e => e.StatusId).HasName("PK__status_p__3683B5319ADC125F");
 
             entity.ToTable("status_product");
 
@@ -699,7 +699,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<StatusUser>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__status_u__3683B5311A3E670E");
+            entity.HasKey(e => e.StatusId).HasName("PK__status_u__3683B531A430C0D0");
 
             entity.ToTable("status_user");
 
@@ -712,7 +712,7 @@ public partial class WoodworkshopContext : DbContext
 
         modelBuilder.Entity<SubMaterial>(entity =>
         {
-            entity.HasKey(e => e.SubMaterialId).HasName("PK__sub_mate__CA29AD7A9930FC8C");
+            entity.HasKey(e => e.SubMaterialId).HasName("PK__sub_mate__CA29AD7AC4A5FB74");
 
             entity.ToTable("sub_materials");
 
@@ -733,12 +733,12 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Material).WithMany(p => p.SubMaterials)
                 .HasForeignKey(d => d.MaterialId)
-                .HasConstraintName("FK__sub_mater__mater__4CA06362");
+                .HasConstraintName("FK__sub_mater__mater__5EBF139D");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__users__B9BE370F759250AE");
+            entity.HasKey(e => e.UserId).HasName("PK__users__B9BE370F661265BA");
 
             entity.ToTable("users");
 
@@ -763,24 +763,24 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Infor).WithMany(p => p.Users)
                 .HasForeignKey(d => d.InforId)
-                .HasConstraintName("FK__users__infor_id__412EB0B6");
+                .HasConstraintName("FK__users__infor_id__534D60F1");
 
             entity.HasOne(d => d.Position).WithMany(p => p.Users)
                 .HasForeignKey(d => d.PositionId)
-                .HasConstraintName("FK__users__position___440B1D61");
+                .HasConstraintName("FK__users__position___5629CD9C");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)
-                .HasConstraintName("FK__users__role_id__4222D4EF");
+                .HasConstraintName("FK__users__role_id__5441852A");
 
             entity.HasOne(d => d.Status).WithMany(p => p.Users)
                 .HasForeignKey(d => d.StatusId)
-                .HasConstraintName("FK__users__status_id__4316F928");
+                .HasConstraintName("FK__users__status_id__5535A963");
         });
 
         modelBuilder.Entity<Whitelist>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__whitelis__3213E83F3F893449");
+            entity.HasKey(e => e.Id).HasName("PK__whitelis__3213E83FAF46B9DB");
 
             entity.ToTable("whitelist");
 
@@ -790,11 +790,11 @@ public partial class WoodworkshopContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.Whitelists)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__whitelist__produ__0C85DE4D");
+                .HasConstraintName("FK__whitelist__produ__1EA48E88");
 
             entity.HasOne(d => d.User).WithMany(p => p.Whitelists)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__whitelist__user___0D7A0286");
+                .HasConstraintName("FK__whitelist__user___1F98B2C1");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -1,12 +1,12 @@
-﻿using WoodWorkshop.DTOs.UserDTOs;
+﻿//using WoodWorkshop.DTOs.UserDTOs;
 
-namespace WoodWorkshop.Services
-{
-    // IJobService.cs
-    public interface IJobService
-    {
-        Task<UserJobsDTO?> GetJobsByUserIdAsync(int userId);
+//namespace WoodWorkshop.Services
+//{
+//    // IJobService.cs
+//    public interface IJobService
+//    {
+//        Task<UserJobsDTO?> GetJobsByUserIdAsync(int userId);
 
-    }
+//    }
 
-}
+//}

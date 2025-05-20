@@ -1,22 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WoodWorkshop.Models;
+﻿//using Microsoft.EntityFrameworkCore;
+//using WoodWorkshop.Models;
 
-namespace WoodWorkshop.Repositories
-{
-    public class JobRepository : IJobRepository
-    {
-        private readonly WoodworkshopContext _context;
+//namespace WoodWorkshop.Repositories
+//{
+//    public class JobRepository : IJobRepository
+//    {
+//        private readonly WoodWorkshop2025Context _context;
 
-        public JobRepository(WoodworkshopContext context)
-        {
-            _context = context;
-        }
+//        public JobRepository(WoodWorkshop2025Context context)
+//        {
+//            _context = context;
+//        }
 
-        public async Task<User?> GetUserWithJobsAsync(int userId)
-        {
-            return await _context.Users
-                .Include(u => u.Jobs)
-                .FirstOrDefaultAsync(u => u.UserId == userId);
-        }
-    }
-}
+//        public async Task<User?> GetUserWithJobsAsync(int userId)
+//        {
+//            return await _context.Users
+//                .Include(u => u.Jobs)
+//                .FirstOrDefaultAsync(u => u.UserId == userId);
+//        }
+//    }
+//}
